@@ -535,24 +535,34 @@
           (unique-triples n)))
 
 ;; ============================================================================
-;; Exercise 2.42
+;; TODO: Exercise 2.42
 ;; ============================================================================
 
-(define empty-board
-  (list))
+;; Our output is a list of *positions*, these are (col row) pairs that describe
+;; the position of the queen on the grid.
 
 ;; *new-row* is an integer from 1 to board-size
 ;; *k* is the column we're on, also an integer
 ;; *rest-of-queens* is "a way to place k-1 queens in the first k-1 columns"
-;; 
+;;
 ;; RESULT: Adjoins a new row-column position to a set of positions
 (define (adjoin-position new-row k rest-of-queens)
+  ;; TODO:
   )
+
+(define sample-queens
+  (list '(1 6) '(2 2) '(3 7) '(4 1) '(5 4) '(6 8) '(7 5)))
+
+(define (safe? k positions)
+  ;; TODO:
+  )
+
+(define empty-board '())
 
 (define (queens board-size)
   (define (queen-cols k)
     (if (= k 0)
-        (list empty-board)
+        '()
         (filter
          (lambda (positions) (safe? k positions))
          (flatmap
@@ -563,4 +573,3 @@
           (queen-cols (- k 1))))))
   (queen-cols board-size))
 
-(enumerate-interval 1 8)
